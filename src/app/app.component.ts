@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'TaskDistribution';
+  selectedTab = "Work";
+
+  tabPicked = function(event){
+    console.log(event);
+    this.selectedTab = event;
+  }
 }

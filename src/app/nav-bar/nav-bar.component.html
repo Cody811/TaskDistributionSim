@@ -1,0 +1,4 @@
+<div class="nav-bar">
+  <p class="title"> {{title}} </p>
+  <div *ngFor="let tab of navtabs;" class = "tab" (click)="onTabSelected(tab)">{{tab}}</div>
+</div>

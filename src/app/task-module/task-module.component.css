@@ -1,0 +1,37 @@
+.task-module{
+  height: 8rem;
+  border-bottom: black solid 1px;
+  overflow: hidden;
+  width:100%
+}
+
+.title{
+  text-decoration: underline;
+  float:left;
+  margin: 0.5rem;
+  font-size: 2rem;
+  width: 33%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+
+.sub-title {
+  float:left;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  width: 20%;
+}
+
+.chart-cont {
+  height: 8rem;
+  overflow: hidden;
+  margin: 0;
+  float: right
+}
+
+.chart {
+  height: 100%;
+  width:80%;
+  float:left;
+}

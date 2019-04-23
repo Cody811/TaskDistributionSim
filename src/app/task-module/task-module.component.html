@@ -1,0 +1,19 @@
+<div class="task-module">
+  <div>
+    <div class="title">
+      <!--
+      <div class="sub-title">
+        Task:
+      </div>
+      -->
+      {{task.title}}
+    </div>
+
+    <div class = "chart-cont" id="{{ 'chart-' + this.id }}">
+      <canvas  class = "chart"></canvas>
+    </div>
+  </div>
+  <div class="sub-title">
+    {{"Skew: " + task.skew}}
+  </div>
+</div>

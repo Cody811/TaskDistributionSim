@@ -1,0 +1,51 @@
+.task-input{
+  background-color: #dddddd;
+  height: 100%;
+  width: 30rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin:0;
+}
+
+.task-cont{
+  overflow-x: hidden;
+  overflow-y: auto;
+  width:100%;
+  height:100%;
+}
+
+.task-cont::-webkit-scrollbar {
+  width: 8px;
+  background-color: #cccccc;
+
+}
+
+.task-cont::-webkit-scrollbar-thumb {
+  background-color: #84A9C0;
+  border-radius: 4px;
+}
+
+.task-cont::-webkit-scrollbar-track-piece {
+  width: 8px;
+  background-color: #cccccc;
+}
+
+.control-bar{
+  height:3rem;
+  background-color: #cccccc;
+  border-bottom: black solid 1px;
+}
+.add{
+  float:left;
+  margin: 1rem;
+}
+
+.add-random{
+  margin: 1rem;
+}
+
+.clear{
+  float: right;
+  margin: 1rem;
+}
