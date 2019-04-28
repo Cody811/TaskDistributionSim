@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {SingleTask} from "./singleTask";
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   selectedTab = "Work";
+  private Taskssss: SingleTask[];
+
+  constructor() {
+    this.Taskssss = [];
+    const task = new SingleTask();
+    this.Taskssss.push(task);
+  }
 
   tabPicked = function(event){
     console.log(event);

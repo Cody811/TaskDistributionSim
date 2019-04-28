@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {SingleTask} from '../singleTask';
 
 
 @Component({
@@ -7,57 +8,50 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./task-input.component.css']
 })
 export class TaskInputComponent implements OnInit {
+  @Input() tasks: SingleTask[];
+
   private genARandomTask: () => {};
   private addRandomTask: () => {};
   private addBlankTask: () => {};
   private clearTasks: () => {};
-  private tasks: {}[];
 
-  constructor() { }
+  constructor() {
+    console.log('Tasks in task niput', this.tasks);
+  }
 
   ngOnInit() {
-
-    this.tasks = [];
+    console.log('Tasks in task niput init', this.tasks);
 
     const blankTask = {
       distribution : 'Normal',
       skew : 0,
       points : [0, 10],
       confidence: 1,
-      title: 'Blank Task',
+      title: 'Blank SingleTask',
       id : 0
     };
 
-    this.genARandomTask = () => {
+    this.genARandomTask = (): SingleTask => {
+      const task = new SingleTask();
 
-      let task = Object.create(blankTask);
-
-      task.distribution = Math.random() > 0.5 ? 'Normal' : 'Binomial';
-      task.skew = Math.round((Math.random() - 0.5) * 100) / 100 ;
-      task.points = task.distribution === 'Normal' ? [1, 5] : [1, 5, 9, 12];
-      task.confidence = Math.random();
-      task.title = Math.random() > 0.5 ? 'Make app' : 'Do CSS';
-      task.id = Math.floor(Math.random() * 10000);
+      task.randomize();
 
       return task;
     };
 
-    this.addRandomTask = () => {
-      this.tasks.push(this.genARandomTask());
+    this.addRandomTask = (): any => {
+      this.tasks.push(this.genARandomTask() as SingleTask);
     };
 
-    this.addBlankTask = () => {
-      this.tasks.push(Object.create(blankTask));
+    this.addBlankTask = (): any => {
+      this.tasks.push(new SingleTask());
     };
 
-    this.clearTasks = () => {
-      while(this.tasks.length)
-        this.tasks.pop()
-    }
-
-    for (let i = 0; i < 10; i++) {
-      this.addRandomTask();
-    }
+    this.clearTasks = (): any => {
+      while (this.tasks.length) {
+        this.tasks.pop();
+      }
+    };
   }
 
 }
