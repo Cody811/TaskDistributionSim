@@ -14,6 +14,7 @@ export class Distribution {
   public addDistribution: (distType: string, returnType: string, min: number, max: number, theta: number) => {};
   public addNestedDistrobution: (distro) => {};
   public next: () => {};
+  public clearAll: () => {};
 
   constructor() {
 
@@ -114,6 +115,11 @@ export class Distribution {
       }
       return true;
     };
+
+    self.clearAll = () => {
+      while (self.distributions.length) { self.distributions.pop(); }
+      return 1;
+    }
 
     self.addNestedDistrobution = (distro)  => {
       self.distributions.push(distro.next);

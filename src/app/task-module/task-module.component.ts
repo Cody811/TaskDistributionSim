@@ -32,27 +32,20 @@ export class TaskModuleComponent implements OnInit, AfterViewInit {
   drawChart() {
     const foundDist = [];
     const labels = [];
-    const dist = new Distribution();
+
 
     if (this.task.distribution === 'Normal') {
+      const min = this.task.getActualMin() as number;
+      const max = this.task.getActualMax() as number;
 
-      const difference = this.task.points[1] - this.task.points[0];
-      const scaleFactor = (1 / this.task.confidence) - 1;
-      const min = Math.floor((Math.max(this.task.points[0] - ((difference * scaleFactor) / 4), 0)) * 100);
-      const max = Math.floor((this.task.points[1] + (difference * scaleFactor)) * 100);
-      console.log('min', min, 'diff', difference, 'scalefactor', scaleFactor, 'max', (this.task.points[1]) * 100);
-
-      dist.addDistribution('skewnormal',
-        'int',
-        min,
-        max ,
-        -(this.task.skew + 1));
+      console.log("min", min, "max", max, "skew", this.task.skew);
 
       for (let i = 0; i < (max - min); i++) {
         foundDist[i] = 0;
       }
+      this.task.refreshActualDistro();
       for (let i = 0; i < 100000; i++) {
-        const n = (dist.next() as number) - min;
+        const n = (this.task.actualDistro.next() as number) - min;
         foundDist[n]  = foundDist[n] + 1;
       }
       foundDist[this.task.points[0]] = 1;
@@ -64,29 +57,25 @@ export class TaskModuleComponent implements OnInit, AfterViewInit {
         labels.push(this.toFixed(val, 2) + ' hrs');
       }
 
-    } else if (this.task.distribution === 'Binomial') {
-      if (true) {
-        dist.addDistribution('skewnormal',
-          'int',
-          0,
-          ((this.task.points[1] * 2) - (this.task.points[0] * 2)) * 100,
-          -(1 + this.task.skew));
-        dist.addDistribution('skewnormal',
-          'int',
-          ((this.task.points[2] * 2) - (this.task.points[3])) * 100,
-          ((this.task.points[3]) - (this.task.points[0])) * 100,
-          1 + this.task.skew);
-      } else {
-        dist.addDistribution('normal',
-          'int',
-          0,
-          ((this.task.points[1] * 2) - (this.task.points[0] * 2)) * 100,
-          0);
-        dist.addDistribution('normal',
-          'int',
-          ((this.task.points[2] * 2) - (this.task.points[3])) * 100,
-          ((this.task.points[3]) - (this.task.points[0])) * 100,
-          0);
+    } else if (this.task.distribution === 'Bimodal') {
+      const min = this.task.getActualMin() as number;
+      const max = this.task.getActualMax() as number;
+
+      for (let i = 0; i < (max - min); i++) {
+        foundDist[i] = 0;
+      }
+      this.task.refreshActualDistro();
+      for (let i = 0; i < 100000; i++) {
+        const n = (this.task.actualDistro.next() as number) - min;
+        foundDist[n]  = foundDist[n] + 1;
+      }
+      foundDist[this.task.points[0]] = 1;
+      foundDist[this.task.points[this.task.points.length - 1]] = 1;
+
+
+      for (let i = min; i < max; i++) {
+        const val = (i / 100);
+        labels.push(this.toFixed(val, 2) + ' hrs');
       }
     }
 
@@ -142,12 +131,12 @@ export class TaskModuleComponent implements OnInit, AfterViewInit {
 
   skewChanged(event) {
     console.log(event);
-    this.task.skew = event.value;
+    this.task.setSkew(event.value);
     this.drawChart();
   }
 
   confidenceChanged(event) {
-    this.task.confidence = event.value;
+    this.task.setConfidence(event.value);
     this.drawChart();
   }
 
