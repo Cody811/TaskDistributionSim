@@ -13,7 +13,7 @@ export class NavBarComponent implements OnInit {
 
   ngOnInit() {
   }
-  title = "SingleTask Distribution";
+  title = "Task Distribution";
 
   navtabs = ["Home", "Work"]
 

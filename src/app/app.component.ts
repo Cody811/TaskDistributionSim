@@ -1,27 +1,15 @@
-import { Component, OnInit, } from '@angular/core';
-import {SingleTask} from "./singleTask";
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
-  selectedTab = 'Work';
-  private Taskssss: SingleTask[];
+export class AppComponent {
+  selectedTab = "Work";
 
-  constructor() {
-    this.Taskssss = [];
-    const task = new SingleTask();
-    this.Taskssss.push(task);
-  }
-
-  ngOnInit() {
-
-  }
-
-  tabPicked = function(event) {
+  tabPicked = function(event){
     console.log(event);
     this.selectedTab = event;
-  };
+  }
 }

@@ -1,20 +1,8 @@
 .task-module{
+  height: 8rem;
   border-bottom: black solid 1px;
   overflow: hidden;
-  width:100%;
-
-  -webkit-transition: height 1s;
-  -moz-transition: height 1s;
-  -ms-transition: height 1s;
-  -o-transition: height 1s;
-  transition: height 1s;
-}
-.task-module-norm{
-  height: 8rem;
-}
-
-.task-module-edit{
-  height: 20rem;
+  width:100%
 }
 
 .title{
@@ -39,29 +27,11 @@
   height: 8rem;
   overflow: hidden;
   margin: 0;
-  float: right;
-  width: calc(100% - 34% - 4rem)
+  float: right
 }
 
 .chart {
   height: 100%;
+  width:80%;
   float:left;
-}
-
-.edit-button{
-  width: 2rem;
-  height: auto;
-  float: right;
-  margin: 0.5rem
-}
-
-.edit-panel{
-  border-top: #555555 dotted 3px;
-  float:left;
-  width: 100%;
-}
-
-.edit-title{
-  text-align: center;
-  margin: 0.5rem;
 }
