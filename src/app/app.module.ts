@@ -7,6 +7,10 @@ import { HomeComponent } from './home/home.component';
 import { WorkspaceComponent } from './workspace/workspace.component';
 import { TaskInputComponent } from './task-input/task-input.component';
 import { TaskModuleComponent } from './task-module/task-module.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatSliderModule} from "@angular/material";
+
 
 @NgModule({
   declarations: [
@@ -18,7 +22,10 @@ import { TaskModuleComponent } from './task-module/task-module.component';
     TaskModuleComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FontAwesomeModule,
+    BrowserAnimationsModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

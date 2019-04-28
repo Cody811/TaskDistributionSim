@@ -1,7 +1,7 @@
 <app-nav-bar (onTabPicked)="tabPicked($event)" class="nav"></app-nav-bar>
 <div style="text-align:center">
   <div *ngIf="selectedTab == 'Home'" class="content"><app-home></app-home></div>
-  <div *ngIf="selectedTab == 'Work'" class="content"><app-workspace></app-workspace></div>
+  <div *ngIf="selectedTab == 'Work'" class="content"><app-workspace [tasks]="Taskssss"></app-workspace></div>
 
 </div>
 
