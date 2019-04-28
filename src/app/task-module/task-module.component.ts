@@ -90,12 +90,12 @@ export class TaskModuleComponent implements OnInit, AfterViewInit {
     }
 
 
-      console.log('vals', foundDist);
-      console.log('labels', labels);
+    console.log('vals', foundDist);
+    console.log('labels', labels);
 
-      const ctx = document.getElementById('chart-' + this.id).childNodes[0];
+    const ctx = document.getElementById('chart-' + this.id).childNodes[0];
 
-      const myChart = new Chart(ctx, {
+    const myChart = new Chart(ctx, {
       type: 'bar',
       data: {
         labels,
@@ -120,12 +120,12 @@ export class TaskModuleComponent implements OnInit, AfterViewInit {
   }
 
 
-    changeEditMode(); {
+  changeEditMode() {
     this.inEditMode = !this.inEditMode;
     console.log(this.inEditMode);
   }
 
-    genLabel(points); {
+  genLabel(points) {
     const label = [];
     for (const point in points) {
       if (points.hasOwnProperty(point)) {
@@ -135,18 +135,18 @@ export class TaskModuleComponent implements OnInit, AfterViewInit {
     return label;
   }
 
-    skewChanged(event); {
+  skewChanged(event) {
     console.log(event);
     this.task.skew = event.value;
     this.drawChart();
   }
 
-    confidenceChanged(event); {
+  confidenceChanged(event) {
     this.task.confidence = event.value;
     this.drawChart();
   }
 
-    toFixed(value, precision); {
+  toFixed(value, precision) {
     const power = Math.pow(10, precision || 0);
     return String(Math.round(value * power) / power);
   }
