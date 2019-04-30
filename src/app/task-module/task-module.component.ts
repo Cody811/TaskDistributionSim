@@ -22,7 +22,6 @@ export class TaskModuleComponent implements OnInit, AfterViewInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.task);
   }
 
   ngAfterViewInit() {
@@ -38,7 +37,6 @@ export class TaskModuleComponent implements OnInit, AfterViewInit {
       const min = this.task.getActualMin() as number;
       const max = this.task.getActualMax() as number;
 
-      console.log("min", min, "max", max, "skew", this.task.skew);
 
       for (let i = 0; i < (max - min); i++) {
         foundDist[i] = 0;
@@ -79,10 +77,6 @@ export class TaskModuleComponent implements OnInit, AfterViewInit {
       }
     }
 
-
-    console.log('vals', foundDist);
-    console.log('labels', labels);
-
     const ctx = document.getElementById('chart-' + this.id).childNodes[0];
 
 
@@ -116,7 +110,6 @@ export class TaskModuleComponent implements OnInit, AfterViewInit {
 
   changeEditMode() {
     this.inEditMode = !this.inEditMode;
-    console.log(this.inEditMode);
   }
 
   genLabel(points) {
@@ -130,7 +123,6 @@ export class TaskModuleComponent implements OnInit, AfterViewInit {
   }
 
   skewChanged(event) {
-    console.log(event);
     this.task.setSkew(event.value);
     this.drawChart();
   }

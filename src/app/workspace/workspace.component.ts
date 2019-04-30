@@ -12,12 +12,9 @@ export class WorkspaceComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    console.log.bind('Tasks in workspace', this.tasks)();
-    setInterval(console.log.bind(this.tasks), 1000);
   }
 
   ngOnChanges() {
-    console.log('Tasks Changed', this.tasks);
   }
 
   runSimulation(){

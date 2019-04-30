@@ -13,8 +13,19 @@ export class AppComponent {
 
   constructor() {
     this.Taskssss = [];
-    const task = new SingleTask();
+    var task = new SingleTask(undefined);
+    task.randomize();
     this.Taskssss.push(task);
+    task = new SingleTask(undefined);
+    task.randomize();
+    this.Taskssss.push(task);
+    task = new SingleTask(undefined);
+    task.randomize();
+    this.Taskssss.push(task);
+    task = new SingleTask(undefined);
+    task.randomize();
+    this.Taskssss.push(task);
+
 
   }
 

@@ -32,7 +32,7 @@ export class TaskInputComponent implements OnInit {
     };
 
     this.genARandomTask = (): SingleTask => {
-      const task = new SingleTask();
+      const task = new SingleTask(undefined);
 
       task.randomize();
 
@@ -45,6 +45,7 @@ export class TaskInputComponent implements OnInit {
 
     this.addBlankTask = (): any => {
       this.tasks.push(new SingleTask());
+
     };
 
     this.clearTasks = (): any => {

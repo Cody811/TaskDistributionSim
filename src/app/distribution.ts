@@ -79,6 +79,7 @@ export class Distribution {
         return (1 - (self.skewNormDev(-theta) as number));
       } else {
         return Math.pow((self.normDev() as number), theta);
+        return Math.pow((self.normDev() as number), theta);
       }
       //return  ?  : ;
     };
@@ -92,7 +93,6 @@ export class Distribution {
       min = min || 0;
       max = max || 1;
       theta = theta || 1;
-      console.log(theta);
       const t = (((distType + returnType) as unknown as string).toLowerCase() as string);
       switch (t) {
         case 'uniformint':

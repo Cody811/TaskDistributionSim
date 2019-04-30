@@ -1,4 +1,5 @@
 import {Distribution} from './distribution';
+import {Optional} from "@angular/core";
 
 export class SingleTask {
   public distribution: string;
@@ -19,13 +20,22 @@ export class SingleTask {
   public setSkew: (newSkew: number) => {};
   public refreshActualDistro: () => {};
 
-  constructor() {
+  constructor(@Optional() baseTask: SingleTask) {
+
     this.distribution = 'Normal';
     this.skew = 0;
     this.confidence = 0.5;
     this.points = [3, 10];
     this.title = 'Blank Task';
     this.id = 0;
+    if (baseTask !== undefined) {
+      this.distribution = baseTask.distribution;
+      this.skew = baseTask.skew;
+      this.confidence = baseTask.confidence;
+      this.points = baseTask.points;
+      this.title = baseTask.title;
+      this.id = baseTask.id;
+    }
     this.actualDistro = new Distribution();
 
     this.randomize = (): any => {
