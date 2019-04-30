@@ -14,7 +14,7 @@
 }
 
 .task-module-edit{
-  height: 20rem;
+  height: 23rem;
 }
 
 .title{
@@ -64,4 +64,8 @@
 .edit-title{
   text-align: center;
   margin: 0.5rem;
+}
+
+.radio-button{
+  margin: 0.5rem
 }

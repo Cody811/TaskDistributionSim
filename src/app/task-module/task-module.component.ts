@@ -18,6 +18,7 @@ export class TaskModuleComponent implements OnInit, AfterViewInit {
   faEdit = faEdit;
   inEditMode = false;
   chart = undefined;
+  dists = ['Normal', 'Bimodal'];
 
   constructor() { }
 
@@ -80,7 +81,7 @@ export class TaskModuleComponent implements OnInit, AfterViewInit {
     const ctx = document.getElementById('chart-' + this.id).childNodes[0];
 
 
-    if(this.chart != undefined){
+    if (this.chart != undefined) {
       this.chart.destroy();
     }
     this.chart = new Chart(ctx, {
@@ -88,7 +89,7 @@ export class TaskModuleComponent implements OnInit, AfterViewInit {
       data: {
         labels,
         datasets: [{
-          label: 'Hours',
+          label: 'Sampled',
           data: foundDist,
           borderWidth: 1,
           backgroundColor: '#84A9C0'
@@ -132,9 +133,31 @@ export class TaskModuleComponent implements OnInit, AfterViewInit {
     this.drawChart();
   }
 
+  updateDistribution(event) {
+    //this.task.distribution = document.getElementById(this.id + '-norm-max').value;
+    console.log(event)
+    this.task.distribution = event.value;
+    if(this.task.distribution == "Normal"){
+      this.task.points = [this.task.points[0], this.task.points[3]]
+    } else {
+      this.task.points = [this.task.points[0], this.task.points[1], this.task.points[0] + this.task.points[1], this.task.points[1] + this.task.points[1]]
+    }
+    this.drawChart();
+  }
+
   toFixed(value, precision) {
     const power = Math.pow(10, precision || 0);
     return String(Math.round(value * power) / power);
+  }
+
+  updateNormMin(event){
+    this.task.points[0] = event.value;
+    this.drawChart();
+  }
+
+  updateNormMax(event){
+    this.task.points[1] = event.value;
+    this.drawChart();
   }
 
 }

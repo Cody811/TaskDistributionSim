@@ -1,7 +1,6 @@
 .report{
   height: 100%;
   float: right;
-  width: calc(100% - 30rem);
   position: absolute;
   left: 30rem;
   top: 0;
@@ -9,14 +8,11 @@
 }
 
 .chart-cont {
-  height: 8rem;
   overflow: hidden;
-  margin: 0;
-  float: right;
-  width: calc(100% - 34% - 4rem)
+  margin: auto;
+  height: 50vh;
 }
 
 .chart {
   height: 100%;
-  float:left;
 }

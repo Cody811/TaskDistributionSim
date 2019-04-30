@@ -9,7 +9,7 @@ import { TaskInputComponent } from './task-input/task-input.component';
 import { TaskModuleComponent } from './task-module/task-module.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {MatSliderModule} from "@angular/material";
+import { MatSliderModule, MatRadioModule, MatFormFieldModule, MatInputModule} from '@angular/material';
 import { ReportComponent } from './report/report.component';
 
 @NgModule({
@@ -26,7 +26,10 @@ import { ReportComponent } from './report/report.component';
     BrowserModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
-    MatSliderModule
+    MatSliderModule,
+    MatRadioModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

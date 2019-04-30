@@ -21,13 +21,28 @@
   <div class="edit-panel">
     <div class = "edit-title">Edit Panel</div>
     <div>
+      <mat-radio-group id="{{id + '-dist-buttons'}}" (change)="updateDistribution($event)">
+        <mat-radio-button class="radio-button" *ngFor="let dist of dists" [checked] = "dist === task.distribution" [value]="dist">
+          {{dist}}
+        </mat-radio-button>
+      </mat-radio-group>
       <div>
         <div class="sub-title">Skew: </div>
-        <mat-slider (change)="skewChanged($event)" thumbLabel="true" step="0.01" min="-0.6" max = "1" value = "{{task.skew}}"></mat-slider>
+        <mat-slider id="{{id + '-skew'}}"(change)="skewChanged($event)" thumbLabel="true" step="0.01" min="-0.6" max = "1" value = "{{task.skew}}"></mat-slider>
       </div>
       <div>
         <div class="sub-title">Confidence: </div>
-        <mat-slider (change)="confidenceChanged($event)" thumbLabel="true" step="0.01" min="0.1" max = "1" value = "{{task.confidence}}"></mat-slider>
+        <mat-slider id="{{id + '-confidence'}}" (change)="confidenceChanged($event)" thumbLabel="true" step="0.01" min="0.1" max = "1" value = "{{task.confidence}}"></mat-slider>
+      </div>
+      <div *ngIf="task.distribution === 'Normal'">
+        <input matInput  (change)="updateNormMin($event) id="{{id + '-norm-min'}}"type="number" value="{{task.points[0]}}" matInput placeholder="Min">
+        <input matInput  (change)="updateNormMax($event)id="{{id + '-norm-max'}}"type="number" value="{{task.points[1]}}" matInput placeholder="Max">
+      </div>
+      <div *ngIf="task.distribution === 'Bimodal'">
+        <input matInput  id="{{id + '-bi-min'}}" value="{{task.points[0]}}" type="number" matInput placeholder="Min">
+        <input matInput  id="{{id + '-bi-mod1'}}" value="{{task.points[1]}}"type="number" matInput placeholder="Mod 1">
+        <input matInput  id="{{id + '-bi-mod2'}}" value="{{task.points[2]}}" type="number" matInput placeholder="Mod 2">
+        <input matInput  id="{{id + '-bi-max'}}" value="{{task.points[3]}}" type="number" matInput placeholder="Max">
       </div>
     </div>
   </div>
