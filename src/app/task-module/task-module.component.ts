@@ -151,12 +151,12 @@ export class TaskModuleComponent implements OnInit, AfterViewInit {
   }
 
   updateNormMin(event){
-    this.task.points[0] = event.value;
+    this.task.points[0] = parseInt(event.target.value);
     this.drawChart();
   }
 
   updateNormMax(event){
-    this.task.points[1] = event.value;
+    this.task.points[1] = parseInt(event.target.value);
     this.drawChart();
   }
 
