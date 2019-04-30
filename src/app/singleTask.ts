@@ -42,7 +42,7 @@ export class SingleTask {
       this.distribution = Math.random() > 0.5 ? 'Normal' : 'Bimodal';
       this.skew = Math.round((Math.random() - 0.5) * 100) / 100;
       this.points = this.distribution === 'Normal' ? [1, 5] : [1, 5, 9, 12];
-      this.confidence = this.toFixed((Math.random() / 2) + 0.5, 2)
+      this.confidence = this.toFixed((Math.random() / 2) + 0.5, 2) as number;
       this.title = Math.random() > 0.5 ? 'Make app' : 'Do CSS';
       this.id = Math.floor(Math.random() * 100000);
     };

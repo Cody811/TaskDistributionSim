@@ -11,9 +11,11 @@ export class TaskInputComponent implements OnInit {
   @Input() tasks: SingleTask[];
 
   private genARandomTask: () => {};
-  private addRandomTask: () => {};
-  private addBlankTask: () => {};
-  private clearTasks: () => {};
+  public addRandomTask: () => {};
+  public addBlankTask: () => {};
+  public clearTasks: () => {};
+
+
 
   constructor() {
     console.log('Tasks in task niput', this.tasks);
@@ -44,7 +46,7 @@ export class TaskInputComponent implements OnInit {
     };
 
     this.addBlankTask = (): any => {
-      this.tasks.push(new SingleTask());
+      this.tasks.push(new SingleTask(undefined));
 
     };
 
