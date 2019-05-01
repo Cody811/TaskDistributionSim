@@ -160,4 +160,25 @@ export class TaskModuleComponent implements OnInit, AfterViewInit {
     this.drawChart();
   }
 
+  updateBiMin(event){
+    this.task.points[0] = parseInt(event.target.value);
+    this.drawChart();
+  }
+
+  updateBiMod1(event){
+    this.task.points[1] = parseInt(event.target.value);
+    this.drawChart();
+  }
+
+  updateBiMod2(event){
+    this.task.points[2] = parseInt(event.target.value);
+    this.drawChart();
+  }
+
+  updateBiMax(event){
+    this.task.points[3] = parseInt(event.target.value);
+    this.drawChart();
+  }
+
+
 }

@@ -80,7 +80,6 @@ export class ReportComponent implements OnInit, AfterViewInit {
   };
 
   runSimulation(tasks, thisSimRun) {
-    //This is all pretty trash, but it's not in budget to figure out 'this'  :(
     const self = this;
     var curSim =  new Promise(function(resolve, reject) {
       const taskEvents = [];

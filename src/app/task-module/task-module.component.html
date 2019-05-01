@@ -39,10 +39,10 @@
         <input matInput  (change)="updateNormMax($event)" id="{{id + '-norm-max'}}"type="number" value="{{task.points[1]}}" matInput placeholder="Max">
       </div>
       <div *ngIf="task.distribution === 'Bimodal'">
-        <input matInput  id="{{id + '-bi-min'}}" value="{{task.points[0]}}" type="number" matInput placeholder="Min">
-        <input matInput  id="{{id + '-bi-mod1'}}" value="{{task.points[1]}}"type="number" matInput placeholder="Mod 1">
-        <input matInput  id="{{id + '-bi-mod2'}}" value="{{task.points[2]}}" type="number" matInput placeholder="Mod 2">
-        <input matInput  id="{{id + '-bi-max'}}" value="{{task.points[3]}}" type="number" matInput placeholder="Max">
+        <input matInput  (change)="updateBiMin($event)" id="{{id + '-bi-min'}}" value="{{task.points[0]}}" type="number" matInput placeholder="Min">
+        <input matInput  (change)="updateBiMod1($event)" id="{{id + '-bi-mod1'}}" value="{{task.points[1]}}"type="number" matInput placeholder="Mod 1">
+        <input matInput  (change)="updateBiMod2($event)" id="{{id + '-bi-mod2'}}" value="{{task.points[2]}}" type="number" matInput placeholder="Mod 2">
+        <input matInput  (change)="updateBiMax($event)" id="{{id + '-bi-max'}}" value="{{task.points[3]}}" type="number" matInput placeholder="Max">
       </div>
     </div>
   </div>
