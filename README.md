@@ -1,5 +1,14 @@
 # TaskDistribution
 
+This repo is an attempt at simulating Agile sprints by user supplied data, to predict overloading the team and missed deadlines. The user provides the lower and upper threshold and the expected distribution for the task (Bell curve, bi-modal, uniform, etc.) and this application runs a Monte Carlo simulation off all tasks.
+
+
+This was a neat project but contains critical architectual issues.
+
+
+
+# Dev Docs
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.6.
 
 ## Development server
